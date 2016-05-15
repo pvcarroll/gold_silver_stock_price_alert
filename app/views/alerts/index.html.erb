@@ -9,6 +9,24 @@
   var goldPriceWidget = new BullionVaultPriceWidget('goldWidgetContainer', goldOptions);
 </script>
 
+<%= @date %>
+$<%= @gold_am %>
+$<%= @gold_pm %>
+$<%= @silver_price %>
+
 <%= form_for @alert do |f| %>
-  <%= f.label :item %>
+    <%= f.label :item %>
+    <%= f.select(:item) do %>
+        <%= content_tag(:option, 'gold', value: 'gold') %>
+        <%= content_tag(:option, 'silver', value: 'silver') %>
+    <% end %>
+    <%= f.label :above_or_below %>
+    <%= f.select(:above_or_below) do %>
+        <%= content_tag(:option, 'above', value: true) %>
+        <%= content_tag(:option, 'below', value: false) %>
+    <% end %>
+    <%= f.label :target_value %>
+    <%= f.text_field :target_value %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 <% end %>
