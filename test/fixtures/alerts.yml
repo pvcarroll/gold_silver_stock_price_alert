@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: MyString
+  above_or_below: false
+  target_value: 9.99
+  email: MyString
+
+two:
+  item: MyString
+  above_or_below: false
+  target_value: 9.99
+  email: MyString
