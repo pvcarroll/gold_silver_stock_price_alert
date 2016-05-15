@@ -1,2 +1,14 @@
-<h1>Alerts#index</h1>
-<p>Find me in app/views/alerts/index.html.erb</p>
+<div id="goldWidgetContainer"></div>
+
+<script type="text/javascript">
+  var goldOptions = {
+    bullion: 'gold',
+    size: '250x250',
+    weightUnit: 'TOZ'
+  };
+  var goldPriceWidget = new BullionVaultPriceWidget('goldWidgetContainer', goldOptions);
+</script>
+
+<%= form_for @alert do |f| %>
+  <%= f.label :item %>
+<% end %>
