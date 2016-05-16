@@ -13,7 +13,8 @@ class AlertsController < ApplicationController
   def create
     @alert = Alert.new alert_params
     if @alert.save
-
+      flash[:notice] = "alert saved"
+      redirect_to root_path
     end
   end
 
