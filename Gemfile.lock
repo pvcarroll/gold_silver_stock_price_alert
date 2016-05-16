@@ -188,11 +188,11 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
-  pg
+  pg (~> 0.18.4)
   puma (~> 3.0)
   quandl
   rails (>= 5.0.0.racecar1, < 5.1)
-  rails_12factor
+  rails_12factor (~> 0.0.3)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
