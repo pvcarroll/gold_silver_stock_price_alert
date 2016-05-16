@@ -11,5 +11,15 @@ class AlertsController < ApplicationController
   end
 
   def create
+    @alert = Alert.new alert_params
+    if @alert.save
+
+    end
   end
+
+  private
+
+    def alert_params
+      params.require(:alert).permit(:item, :above_or_below, :target_value, :email)
+    end
 end
