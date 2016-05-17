@@ -16,10 +16,10 @@ class Alert < ApplicationRecord
 
       if alert[:above_or_below] && (price > alert[:target_value])
         puts "#{alert[:item]} ABOVE"
-        PriceAlertMailer.send_alert_email(alert).deliver
+        PriceAlertMailer.send_alert_email(alert, price).deliver
       elsif !alert[:above_or_below] && (price < alert[:target_value])
         puts "#{alert[:item]} BELOW"
-        PriceAlertMailer.send_alert_email(alert).deliver
+        PriceAlertMailer.send_alert_email(alert, price).deliver
       end
     end
   end

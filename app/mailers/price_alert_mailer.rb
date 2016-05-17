@@ -1,11 +1,11 @@
 class PriceAlertMailer < ApplicationMailer
 
-  def send_alert_email(alert)
+  def send_alert_email(alert, price)
     @alert = alert
-    puts "ALERT.EMAIL #{alert.email}"
+    @price = price
     if !alert.email.empty?
       mail( :to => @alert.email,
-          :subject => 'Thanks for signing up for our amazing app' )
+          :subject => 'Price alert' )
     end
   end
 end
