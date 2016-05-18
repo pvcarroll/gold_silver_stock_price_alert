@@ -14,12 +14,9 @@ class Alert < ApplicationRecord
     Alert.all.each do |alert|
       price = (alert[:item] == 'gold') ? gold_price : silver_price
 
-      if alert[:above_or_below] && (price > alert[:target_value])
-        puts "#{alert[:item]} ABOVE"
+      if (alert[:above_or_below] && (price > alert[:target_value])) || (!alert[:above_or_below] && (price < alert[:target_value]))
         PriceAlertMailer.send_alert_email(alert, price).deliver
-      elsif !alert[:above_or_below] && (price < alert[:target_value])
-        puts "#{alert[:item]} BELOW"
-        PriceAlertMailer.send_alert_email(alert, price).deliver
+        alert.destroy!
       end
     end
   end
