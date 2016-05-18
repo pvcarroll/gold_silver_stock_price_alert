@@ -4,7 +4,11 @@ class Alert < ApplicationRecord
   def self.get_gold_silver_data
     require 'quandl'
     Quandl::ApiConfig.api_key = QUANDL_API_KEY
-    return  {gold_data: Quandl::Dataset.get('LBMA/GOLD').data.first, silver_data: Quandl::Dataset.get('LBMA/SILVER').data.first}
+    return  {
+              gold_data: Quandl::Dataset.get('LBMA/GOLD').data.first,
+              silver_data: Quandl::Dataset.get('LBMA/SILVER').data.first,
+              sp_index_data: Quandl::Dataset.get('YAHOO/INDEX_GSPC').data.first
+    }
   end
 
   def self.check_target_values

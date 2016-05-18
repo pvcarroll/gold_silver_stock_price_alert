@@ -8,6 +8,10 @@ class AlertsController < ApplicationController
     @gold_pm = gold_data.usd_pm
     silver_data = data[:silver_data]
     @silver_price = silver_data.usd
+    sp_index_data = data[:sp_index_data]
+    @sp_index_open = sp_index_data.open
+    @sp_index_close = sp_index_data.close
+    puts sp_index_data.inspect
   end
 
   def create
