@@ -15,8 +15,15 @@ class Alert < ApplicationRecord
     data = self.get_gold_silver_data
     gold_price = data[:gold_data].usd_am
     silver_price = data[:silver_data].usd
+    sp_index_open = data[:sp_index_data].open
     Alert.all.each do |alert|
-      price = (alert[:item] == 'gold') ? gold_price : silver_price
+      if alert[:item] == 'sp_index'
+        price = sp_index_open
+      elsif alert[:item] == 'gold'
+        price = gold_price
+      elsif alert[:item] == 'silver'
+        price = silver_price
+      end
 
       if (alert[:above_or_below] && (price > alert[:target_value])) || (!alert[:above_or_below] && (price < alert[:target_value]))
         PriceAlertMailer.send_alert_email(alert, price).deliver

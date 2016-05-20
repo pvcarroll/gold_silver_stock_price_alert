@@ -1,13 +1,13 @@
-<div id="goldWidgetContainer"></div>
+<!--<div id="goldWidgetContainer"></div>-->
 
-<script type="text/javascript">
-  var goldOptions = {
-    bullion: 'gold',
-    size: '250x250',
-    weightUnit: 'TOZ'
-  };
-  var goldPriceWidget = new BullionVaultPriceWidget('goldWidgetContainer', goldOptions);
-</script>
+<!--<script type="text/javascript">-->
+//  var goldOptions = {
+//    bullion: 'gold',
+//    size: '250x250',
+//    weightUnit: 'TOZ'
+//  };
+//  var goldPriceWidget = new BullionVaultPriceWidget('goldWidgetContainer', goldOptions);
+<!--</script>-->
 
 <%= @date %>
 $<%= @gold_am %>
@@ -21,6 +21,7 @@ S&P Index close: <%= @sp_index_close %>
     <%= f.select(:item) do %>
         <%= content_tag(:option, 'gold', value: 'gold') %>
         <%= content_tag(:option, 'silver', value: 'silver') %>
+        <%= content_tag(:option, 'S&P Index', value: 'sp_index') %>
     <% end %>
     <%= f.label :above_or_below %>
     <%= f.select(:above_or_below) do %>
