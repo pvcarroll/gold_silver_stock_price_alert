@@ -18,8 +18,8 @@ S&P Index close: <%= @sp_index_close %>
 
 <div class="alert-form-container">
   <%= form_for(@alert, :html => { :class => 'form' }) do |f| %>
+      <h6>Gold/Silver/S&P Index price alert</h6>
       <fieldset class="form-group">
-        <%= f.label :item %>
         <%= f.select(:item, [['Gold', 'gold'], ['Silver', 'silver'], ['S&P Index', 'sp_index']], {}, { class: 'form-control'}) %>
       </fieldset>
       <fieldset class="form-group">
