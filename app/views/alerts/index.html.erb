@@ -16,22 +16,25 @@ $<%= @silver_price %>
 S&P Index open: <%= @sp_index_open %>
 S&P Index close: <%= @sp_index_close %>
 
-<%= form_for @alert do |f| %>
-    <%= f.label :item %>
-    <%= f.select(:item) do %>
-        <%= content_tag(:option, 'gold', value: 'gold') %>
-        <%= content_tag(:option, 'silver', value: 'silver') %>
-        <%= content_tag(:option, 'S&P Index', value: 'sp_index') %>
-    <% end %>
-    <%= f.label :above_or_below %>
-    <%= f.select(:above_or_below) do %>
-        <%= content_tag(:option, 'above', value: true) %>
-        <%= content_tag(:option, 'below', value: false) %>
-    <% end %>
-    <%= f.label :target_value %>
-    <%= f.text_field :target_value %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <%= f.submit 'Create Alert' %>
-<% end %>
-<%= flash[:notice] %>
+<div class="alert-form-container">
+  <%= form_for(@alert, :html => { :class => 'form' }) do |f| %>
+      <fieldset class="form-group">
+        <%= f.label :item %>
+        <%= f.select(:item, [['Gold', 'gold'], ['Silver', 'silver'], ['S&P Index', 'sp_index']], {}, { class: 'form-control'}) %>
+      </fieldset>
+      <fieldset class="form-group">
+        <%= f.radio_button :above_or_below, true %> Above
+        <%= f.radio_button :above_or_below, false %> Below
+      </fieldset>
+      <fieldset class="form-group">
+        <%= f.label :target_value %>
+        <%= f.text_field :target_value, class: 'form-control' %>
+      </fieldset>
+      <fieldset class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+      </fieldset>
+      <%= f.submit 'Create Alert', class: 'btn btn-primary' %>
+  <% end %>
+  <%= flash[:notice] %>
+</div>
