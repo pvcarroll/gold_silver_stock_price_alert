@@ -1,4 +1,5 @@
 class Alert < ApplicationRecord
+  validates :above_or_below, :target_value, :email, presence: true
   QUANDL_API_KEY = 'Rj98VdAhWedxFFbvUCTJ'
 
   def self.get_gold_silver_data
