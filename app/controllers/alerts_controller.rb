@@ -17,9 +17,9 @@ class AlertsController < ApplicationController
   def create
     @alert = Alert.new alert_params
     if @alert.save
-      flash[:notice] = 'alert saved'
+      flash[:notice] = 'Alert saved'
     else
-      flash[:notice] = 'alert NOT saved'
+      flash[:failure] = 'Alert NOT saved. All fields are required.'
     end
       redirect_to root_path
   end

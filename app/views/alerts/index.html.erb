@@ -36,5 +36,10 @@ S&P Index close: <%= @sp_index_close %>
       </fieldset>
       <%= f.submit 'Create Alert', class: 'btn btn-primary' %>
   <% end %>
-  <%= flash[:notice] %>
+  <% if !flash[:notice].nil? %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <% if !flash[:failure].nil? %>
+    <div class="alert alert-danger" role="alert"><%= flash[:failure] %></div>
+  <% end %>
 </div>
