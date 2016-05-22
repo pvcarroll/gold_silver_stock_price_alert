@@ -1,26 +1,22 @@
-<!--<div id="goldWidgetContainer"></div>-->
-
-<!--<script type="text/javascript">-->
-//  var goldOptions = {
-//    bullion: 'gold',
-//    size: '250x250',
-//    weightUnit: 'TOZ'
-//  };
-//  var goldPriceWidget = new BullionVaultPriceWidget('goldWidgetContainer', goldOptions);
-<!--</script>-->
-
 <%= @date %>
-$<%= @gold_am %>
-$<%= @gold_pm %>
-$<%= @silver_price %>
+Gold Price (AM): $<%= @gold_am %>
+Gold Price (PM) $<%= @gold_pm %>
+Silver Price: $<%= @silver_price %>
 S&P Index open: <%= @sp_index_open %>
 S&P Index close: <%= @sp_index_close %>
+
+<div id="chartContainer" style="height: 300px; width: 500px;"></div>
+
+<script type="text/javascript" >
+  var options = {bullion: 'gold', containerDefinedSize: true, switchBullion: true};
+  var chartBV = new BullionVaultChart(options, 'chartContainer');
+</script>
 
 <div class="alert-form-container">
   <%= form_for(@alert, :html => { :class => 'form' }) do |f| %>
       <h6>Gold/Silver/S&P Index price alert</h6>
       <fieldset class="form-group inline">
-        <%= f.select(:item, [['Gold', 'gold'], ['Silver', 'silver'], ['S&P Index', 'sp_index']], {}, { class: 'form-control'}) %>
+        <%= f.select(:item, [['Gold', 'gold'], ['Silver', 'silver'], ['S&P 500 Index', 'sp_index']], {}, { class: 'form-control'}) %>
       </fieldset>
       <fieldset class="form-group">
         <%= f.radio_button :above_or_below, true %> Above
