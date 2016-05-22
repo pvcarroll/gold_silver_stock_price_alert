@@ -6,9 +6,9 @@ class Alert < ApplicationRecord
     require 'quandl'
     Quandl::ApiConfig.api_key = QUANDL_API_KEY
     return  {
-              gold_data: Quandl::Dataset.get('LBMA/GOLD').data.first,
-              silver_data: Quandl::Dataset.get('LBMA/SILVER').data.first,
-              sp_index_data: Quandl::Dataset.get('YAHOO/INDEX_GSPC').data.first
+              gold_data: Quandl::Dataset.get('LBMA/GOLD').data(params: { limit: 1 }).first,
+              silver_data: Quandl::Dataset.get('LBMA/SILVER').data(params: { limit: 1 }).first,
+              sp_index_data: Quandl::Dataset.get('YAHOO/INDEX_GSPC').data(params: { limit: 1 }).first
     }
   end
 
