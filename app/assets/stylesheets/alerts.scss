@@ -1,6 +1,22 @@
 // Place all the styles related to the alerts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-fluid {
+  text-align: center;
+}
+
+.priceInfoBanner {
+  background-color: lightsteelblue;
+  border-bottom: 1px solid black;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.leftSideContainer {
+  display: inline-block;
+}
+
 .alert-form-container {
   display: inline-block;
   border: 1px solid #2E2F30;
@@ -15,7 +31,13 @@
 
 .rightSideContainer {
   position: relative;
-  display: inline-block;
   right: 0;
   float: right;
+  width: 60%;
+  text-align: center;
+}
+
+.chartsContainer {
+  margin: 0 auto;
+  display: inline-block;
 }
