@@ -1,16 +1,11 @@
-<%= @date %>
-Gold Price (AM): $<%= @gold_am %>
-Gold Price (PM) $<%= @gold_pm %>
-Silver Price: $<%= @silver_price %>
-S&P Index open: <%= @sp_index_open %>
-S&P Index close: <%= @sp_index_close %>
-
-<div id="chartContainer" style="height: 300px; width: 500px;"></div>
-
-<script type="text/javascript" >
-  var options = {bullion: 'gold', containerDefinedSize: true, switchBullion: true};
-  var chartBV = new BullionVaultChart(options, 'chartContainer');
-</script>
+<div class="priceInfoBanner">
+  <%= @date %>
+  Gold Price (AM): $<%= @gold_am %>
+  Gold Price (PM) $<%= @gold_pm %>
+  Silver Price: $<%= @silver_price %>
+  S&P Index open: <%= @sp_index_open %>
+  S&P Index close: <%= @sp_index_close %>
+</div>
 
 <div class="alert-form-container">
   <%= form_for(@alert, :html => { :class => 'form' }) do |f| %>
@@ -27,15 +22,51 @@ S&P Index close: <%= @sp_index_close %>
         <%= f.text_field :target_value, class: 'form-control' %>
       </fieldset>
       <fieldset class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'form-control' %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
       </fieldset>
       <%= f.submit 'Create Alert', class: 'btn btn-primary' %>
   <% end %>
   <% if !flash[:notice].nil? %>
-    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+      <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
   <% end %>
   <% if !flash[:failure].nil? %>
-    <div class="alert alert-danger" role="alert"><%= flash[:failure] %></div>
+      <div class="alert alert-danger" role="alert"><%= flash[:failure] %></div>
   <% end %>
 </div>
+
+<div class="rightSideContainer">
+  <!-- TradingView Widget BEGIN -->
+  <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+  <script type="text/javascript">
+    new TradingView.widget({
+      "width": 980,
+      "height": 610,
+      "symbol": "FX:SPX500",
+      "interval": "D",
+      "timezone": "Etc/UTC",
+      "theme": "White",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#f1f3f6",
+      "allow_symbol_change": true,
+      "hideideas": true,
+      "show_popup_button": true,
+      "popup_width": "1000",
+      "popup_height": "650",
+      "no_referral_id": true
+    });
+  </script>
+  <!-- TradingView Widget END -->
+
+
+  <div id="chartContainer" style="height: 600px; width: 1000px;"></div>
+
+  <script type="text/javascript" >
+    var options = {bullion: 'gold', containerDefinedSize: true, switchBullion: true};
+    var chartBV = new BullionVaultChart(options, 'chartContainer');
+  </script>
+</div>
+
+
+
