@@ -42,3 +42,12 @@
   margin: 0 auto;
   display: inline-block;
 }
+
+@media (max-width: 650px) {
+  .leftSideContainer {
+    display: block;
+  }
+  .rightSideContainer {
+    float: none;
+  }
+}
