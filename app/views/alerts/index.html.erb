@@ -7,7 +7,7 @@
   S&P Index close: <%= @sp_index_close %>
 </div>
 <div class="container-fluid">
-  <div class="leftSideContainer">
+  <div class="topContainer">
     <div class="alertFormContainer">
       <%= form_for(@alert, :html => { :class => 'form-inline' }) do |f| %>
           <h5>Gold/Silver/S&P 500 Index price alert</h5>
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="rightSideContainer">
+  <div class="bottomContainer">
     <div class="chartsContainer">
       <!-- TradingView Widget BEGIN -->
       <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>

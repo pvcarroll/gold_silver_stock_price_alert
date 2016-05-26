@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body {
+  height: 100%;
+}
+
 .priceInfoBanner {
   border-bottom: 1px solid black;
   text-align: center;
@@ -10,9 +14,10 @@
 .container-fluid {
   text-align: center;
   background-color: #EAEFF4;
+  height: 100%;
 }
 
-.leftSideContainer {
+.topContainer {
 
   .alertFormContainer {
     display: inline-block;
@@ -38,29 +43,27 @@
   }
 }
 
-.rightSideContainer {
+.bottomContainer {
   position: relative;
   right: 0;
-  float: right;
-  width: 60%;
   text-align: center;
 
   .chartsContainer {
-    margin: 10px auto 0;
-    display: inline-block;
+    margin: 20px auto 0;
 
-    #chartContainer {
-      margin-top: 10px;
+    div {
+      display: inline-block;
+      vertical-align: top;
     }
   }
 }
 
 @media (max-width: 650px) {
-  .leftSideContainer {
+  .topContainer {
     display: block;
     width: 100%;
   }
-  .rightSideContainer {
+  .bottomContainer {
     float: none;
   }
 }
