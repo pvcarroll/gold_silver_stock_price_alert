@@ -8,22 +8,25 @@
 </div>
 <div class="container-fluid">
   <div class="leftSideContainer">
-    <div class="alert-form-container">
-      <%= form_for(@alert, :html => { :class => 'form' }) do |f| %>
-          <h6>Gold/Silver/S&P Index price alert</h6>
-          <fieldset class="form-group inline">
+    <div class="alertFormContainer">
+      <%= form_for(@alert, :html => { :class => 'form-inline' }) do |f| %>
+          <h5>Gold/Silver/S&P 500 Index price alert</h5>
+          <fieldset class="form-group">
             <%= f.select(:item, [['Gold', 'gold'], ['Silver', 'silver'], ['S&P 500 Index', 'sp_index']], {}, { class: 'form-control'}) %>
           </fieldset>
           <fieldset class="form-group">
             <%= f.radio_button :above_or_below, true %> Above
+            <br />
             <%= f.radio_button :above_or_below, false %> Below
           </fieldset>
-          <fieldset class="form-group inline">
+          <fieldset class="form-group">
             <%= f.label :target_value %>
+            <br />
             <%= f.text_field :target_value, class: 'form-control' %>
           </fieldset>
           <fieldset class="form-group">
             <%= f.label :email %>
+            <br />
             <%= f.text_field :email, class: 'form-control' %>
           </fieldset>
           <%= f.submit 'Create Alert', class: 'btn btn-primary' %>

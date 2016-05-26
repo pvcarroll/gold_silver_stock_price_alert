@@ -9,13 +9,12 @@
 
 .container-fluid {
   text-align: center;
+  background-color: #EAEFF4;
 }
 
 .leftSideContainer {
-  display: inline-block;
-  margin-top: 20px;
 
-  .alert-form-container {
+  .alertFormContainer {
     display: inline-block;
     border: 1px solid #2E2F30;
     border-radius: 12px;
@@ -23,11 +22,20 @@
     padding: 10px;
     margin-top: 30px;
     text-align: center;
-  }
-}
 
-.inline {
-  display: inline;
+    .form-group {
+      margin: 0 10px;
+    }
+
+    label {
+      margin-bottom: 0;
+    }
+
+    .btn {
+      margin: 12px auto 0;
+      display: block;
+    }
+  }
 }
 
 .rightSideContainer {
