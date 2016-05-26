@@ -1,12 +1,12 @@
+<div class="priceInfoBanner navbar bg-inverse">
+  <%= @date %>
+  Gold Price (AM): $<%= @gold_am %> |
+  Gold Price (PM): $<%= @gold_pm %> |
+  Silver Price: $<%= @silver_price %> |
+  S&P Index open: <%= @sp_index_open %> |
+  S&P Index close: <%= @sp_index_close %>
+</div>
 <div class="container-fluid">
-  <div class="priceInfoBanner">
-    <%= @date %>
-    Gold Price (AM): $<%= @gold_am %>
-    Gold Price (PM): $<%= @gold_pm %>
-    Silver Price: $<%= @silver_price %>
-    S&P Index open: <%= @sp_index_open %>
-    S&P Index close: <%= @sp_index_close %>
-  </div>
   <div class="leftSideContainer">
     <div class="alert-form-container">
       <%= form_for(@alert, :html => { :class => 'form' }) do |f| %>
