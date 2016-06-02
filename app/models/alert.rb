@@ -2,7 +2,7 @@ class Alert < ApplicationRecord
   validates :above_or_below, :target_value, :email, presence: true
   QUANDL_API_KEY = 'Rj98VdAhWedxFFbvUCTJ'
 
-  def self.get_gold_silver_data
+  def self.get_gold_silver_stock_data
     require 'quandl'
     Quandl::ApiConfig.api_key = QUANDL_API_KEY
     return  {
@@ -13,7 +13,7 @@ class Alert < ApplicationRecord
   end
 
   def self.check_target_values
-    data = self.get_gold_silver_data
+    data = self.get_gold_silver_stock_data
     gold_price = data[:gold_data].usd_am
     silver_price = data[:silver_data].usd
     sp_index_open = data[:sp_index_data].open
