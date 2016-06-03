@@ -12,7 +12,15 @@
       <%= form_for(@alert, :html => { :class => 'form-inline' }) do |f| %>
           <h5>Gold/Silver/S&P 500 Index price alert</h5>
           <fieldset class="form-group">
-            <%= f.select(:item, [['Gold', 'gold'], ['Silver', 'silver'], ['S&P 500 Index', 'sp_index'], ['<Pick A Stock>', 'stock']], {}, { class: 'form-control'}) %>
+            <%= f.select(:item, [['Gold', 'gold'],
+                                 ['Silver', 'silver'],
+                                 ['S&P 500 Index', 'sp_index'],
+                                 ['<Pick A Stock>', 'stock']], {}, { class: 'form-control'}) %>
+          </fieldset>
+          <fieldset class="form-group stockField">
+            <%= f.label :stock %>
+            <br />
+            <%= f.text_field :stock, class: 'form-control' %>
           </fieldset>
           <fieldset class="form-group">
             <%= f.radio_button :above_or_below, true %> Above

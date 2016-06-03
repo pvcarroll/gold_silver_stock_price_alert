@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+$(document).ready(function() {
+    $("#alert_item").change(function() {
+        if ($("#alert_item").val() == "stock") {
+            $(".stockField").fadeIn('fast');
+        } else {
+            $(".stockField").fadeOut('fast');
+        }
+    });
+});
