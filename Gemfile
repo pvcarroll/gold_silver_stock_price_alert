@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap'
+gem 'rails-assets-tether', '>= 1.1.0'
 gem 'quandl'
 gem 'smarter_csv'
 
