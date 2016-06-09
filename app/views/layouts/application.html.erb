@@ -7,18 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'alerts', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://www.bullionvault.com/chart/bullionvaultchart.js?v=1"></script>
-    <script type="text/javascript" >
-      $(document).ready(function() {
-        $("#alert_item").change(function() {
-          if ($("#alert_item").val() == "stock") {
-            $(".stockField").fadeIn('fast');
-          } else {
-            $(".stockField").fadeOut('fast');
-          }
-        });
-      });
-    </script>
   </head>
 
   <body>
