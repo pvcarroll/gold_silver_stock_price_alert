@@ -2,6 +2,12 @@ class Alert < ApplicationRecord
   validates :above_or_below, :target_value, :email, presence: true
   QUANDL_API_KEY = 'Rj98VdAhWedxFFbvUCTJ'
 
+  def self.get_stock_price(stock)
+    require 'quandl'
+    Quandl::ApiConfig.api_key = QUANDL_API_KEY
+    Quandl::Dataset.get('GOOG/' + stock).data(params: { limit: 1 })
+  end
+
   def self.get_gold_silver_stock_data
     require 'quandl'
     Quandl::ApiConfig.api_key = QUANDL_API_KEY
@@ -18,7 +24,9 @@ class Alert < ApplicationRecord
     silver_price = data[:silver_data].usd
     sp_index_open = data[:sp_index_data].open
     Alert.all.each do |alert|
-      if alert[:item] == 'sp_index'
+      if alert[:item] == 'stock'
+        price = self.get_stock_price alert[:stock]
+      elsif alert[:item] == 'sp_index'
         price = sp_index_open
       elsif alert[:item] == 'gold'
         price = gold_price

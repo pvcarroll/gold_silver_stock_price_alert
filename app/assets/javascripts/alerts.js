@@ -2,9 +2,10 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-alert('alerts.js message');
-
 $(document).ready(function() {
+  if ($("#alert_item").val() == "stock") {
+      $(".stockField").fadeIn('fast');
+  }
   $("#alert_item").change(function() {
     if ($("#alert_item").val() == "stock") {
       $(".stockField").fadeIn('fast');

@@ -15,10 +15,10 @@
             <%= f.select(:item, [['Gold', 'gold'],
                                  ['Silver', 'silver'],
                                  ['S&P 500 Index', 'sp_index'],
-                                 ['<Pick A Stock>', 'stock']], {}, { class: 'form-control'}) %>
+                                 ['<Pick A Stock>', 'stock']], {}, {class: 'form-control'}) %>
           </fieldset>
           <fieldset class="form-group stockField">
-            <%= f.label :stock %>
+            <%= f.label 'Stock (<Exchange>_<Ticker>)' %>
             <br />
             <%= f.text_field :stock, class: 'form-control' %>
           </fieldset>

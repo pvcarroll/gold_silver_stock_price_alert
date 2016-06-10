@@ -16,5 +16,3 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require_tree .
-
-alert('application.js message');

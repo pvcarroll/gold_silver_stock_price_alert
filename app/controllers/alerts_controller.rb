@@ -15,6 +15,8 @@ class AlertsController < ApplicationController
 
   def create
     @alert = Alert.new alert_params
+    puts alert_params
+    @stock = alert_params[:stock]
     if @alert.save
       flash[:notice] = 'Alert saved'
     else
@@ -26,6 +28,6 @@ class AlertsController < ApplicationController
   private
 
     def alert_params
-      params.require(:alert).permit(:item, :above_or_below, :target_value, :email)
+      params.require(:alert).permit(:item, :stock, :above_or_below, :target_value, :email)
     end
 end
