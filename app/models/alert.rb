@@ -1,5 +1,6 @@
 class Alert < ApplicationRecord
-  validates :above_or_below, :target_value, :email, presence: true
+  validates :target_value, :email, presence: true
+  validates :stock, presence: true, if: :item_is_stock?
   require 'quandl'
   Quandl::ApiConfig.api_key = 'Rj98VdAhWedxFFbvUCTJ'
 
@@ -36,5 +37,11 @@ class Alert < ApplicationRecord
               silver_data: Quandl::Dataset.get('LBMA/SILVER').data(params: { limit: 1 }).first,
               sp_index_data: Quandl::Dataset.get('YAHOO/INDEX_GSPC').data(params: { limit: 1 }).first
     }
+  end
+
+  private
+
+  def item_is_stock?
+    self.item == 'stock'
   end
 end
