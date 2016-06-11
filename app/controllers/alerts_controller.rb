@@ -15,7 +15,6 @@ class AlertsController < ApplicationController
 
   def create
     @alert = Alert.new alert_params
-    puts alert_params
     @stock = alert_params[:stock]
     if @alert.save
       flash[:notice] = 'Alert saved'

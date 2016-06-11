@@ -1,22 +1,7 @@
 class Alert < ApplicationRecord
   validates :above_or_below, :target_value, :email, presence: true
-  QUANDL_API_KEY = 'Rj98VdAhWedxFFbvUCTJ'
-
-  def self.get_stock_price(stock)
-    require 'quandl'
-    Quandl::ApiConfig.api_key = QUANDL_API_KEY
-    Quandl::Dataset.get('GOOG/' + stock).data(params: { limit: 1 })
-  end
-
-  def self.get_gold_silver_stock_data
-    require 'quandl'
-    Quandl::ApiConfig.api_key = QUANDL_API_KEY
-    return  {
-              gold_data: Quandl::Dataset.get('LBMA/GOLD').data(params: { limit: 1 }).first,
-              silver_data: Quandl::Dataset.get('LBMA/SILVER').data(params: { limit: 1 }).first,
-              sp_index_data: Quandl::Dataset.get('YAHOO/INDEX_GSPC').data(params: { limit: 1 }).first
-    }
-  end
+  require 'quandl'
+  Quandl::ApiConfig.api_key = 'Rj98VdAhWedxFFbvUCTJ'
 
   def self.check_target_values
     data = self.get_gold_silver_stock_data
@@ -39,5 +24,17 @@ class Alert < ApplicationRecord
         alert.destroy!
       end
     end
+  end
+
+  def self.get_stock_price(stock)
+    Quandl::Dataset.get('GOOG/' + stock).data(params: { limit: 1 }).first.open
+  end
+
+  def self.get_gold_silver_stock_data
+    return  {
+              gold_data: Quandl::Dataset.get('LBMA/GOLD').data(params: { limit: 1 }).first,
+              silver_data: Quandl::Dataset.get('LBMA/SILVER').data(params: { limit: 1 }).first,
+              sp_index_data: Quandl::Dataset.get('YAHOO/INDEX_GSPC').data(params: { limit: 1 }).first
+    }
   end
 end
