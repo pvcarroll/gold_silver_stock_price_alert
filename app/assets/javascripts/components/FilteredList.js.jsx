@@ -11,6 +11,8 @@ var FilteredList = React.createClass({
             return item.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
         });
         this.setState({items: updatedList});
+
+        $('.dropdown-toggle').dropdown('toggle');
     },
 
     getInitialState: function() {
