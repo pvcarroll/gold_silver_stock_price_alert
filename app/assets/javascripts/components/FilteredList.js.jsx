@@ -24,7 +24,7 @@ var FilteredList = React.createClass({
     render: function() {
         return (
             <div className="myList">
-                <input type="text" placeholder="Search" onChange={this.filterList} />
+                <input type="text" placeholder="Stock" onChange={this.filterList} />
                 <List items={this.state.items} />
             </div>
         );
