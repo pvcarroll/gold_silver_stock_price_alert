@@ -6,7 +6,8 @@ var List = React.createClass({
                <div className="dropdown-toggle" data-toggle="dropdown"></div>
                <ul className="dropdown-menu">
                    {this.props.items.map(function(item) {
-                       return <li key={item} onClick={function() {document.getElementById('stockInput').value = {item}.item;}}>{item}</li>
+                       return <li key={item} onClick={function() {document.getElementById('stockInput').value = {item}.item;
+                                    document.getElementById("hiddenStockField").value = {item}.item;Alert}}>{item}</li>
                    })}
                </ul>
            </div>
