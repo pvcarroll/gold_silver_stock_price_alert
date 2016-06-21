@@ -19,7 +19,7 @@
                                  ['<Pick A Stock>', 'stock']], {}, {class: 'form-control'}) %>
           </fieldset>
           <fieldset class="form-group stockField">
-            <%= f.label 'Select a Stock' %>
+            <%= f.label 'Select a Stock - Start typing company name or ticker to see matches' %>
             <br />
             <%= react_component('FilteredList', {}) %>
             <%= f.hidden_field :stock, class: 'form-control', id: 'hiddenStockField' %>

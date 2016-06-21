@@ -59,7 +59,7 @@ var FilteredList = React.createClass({
         return (
             <div className="myList">
                 <List items={this.state.items} />
-                <input type="text" id="stockInput" placeholder="Stock" onChange={this.filterList} />
+                <input type="text" id="stockInput" className="form-control" placeholder="Stock" onChange={this.filterList} />
             </div>
         );
     }
