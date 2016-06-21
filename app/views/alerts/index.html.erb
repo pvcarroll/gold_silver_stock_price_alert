@@ -22,7 +22,7 @@
             <%= f.label 'Select a Stock' %>
             <br />
             <%= react_component('FilteredList', {}) %>
-            <%= f.text_field :stock, class: 'form-control', id: 'hiddenStockField' %>
+            <%= f.hidden_field :stock, class: 'form-control', id: 'hiddenStockField' %>
           </fieldset>
           <fieldset class="form-group">
             <%= f.radio_button :above_or_below, true, checked: true %> Above
