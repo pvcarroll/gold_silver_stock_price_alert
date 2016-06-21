@@ -29,6 +29,10 @@ var stocks = ["GOOG/PINK_LAWEQ,Law Enforcem Assoc (LAWEQ)",
     "GOOG/EPA_OROS,Orosdi SCA (OROS)",
     "GOOG/NSE_GLORY,Glory Polyfilms Limited (GLORY)"];
 
+function setStockFieldValue(eventTargetValue) {
+    document.getElementById("hiddenStockField").value = eventTargetValue;
+}
+
 var FilteredList = React.createClass({
 
     filterList: function(event) {
@@ -40,6 +44,7 @@ var FilteredList = React.createClass({
         this.setState({items: updatedList});
 
         $('.dropdown').addClass('open');
+        setStockFieldValue(event.target.value);
     },
 
     getInitialState: function() {
@@ -53,8 +58,8 @@ var FilteredList = React.createClass({
     render: function() {
         return (
             <div className="myList">
-                <input type="text" placeholder="Stock" onChange={this.filterList} />
                 <List items={this.state.items} />
+                <input type="text" placeholder="Stock" onChange={this.filterList} />
             </div>
         );
     }
