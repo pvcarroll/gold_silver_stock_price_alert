@@ -10,6 +10,7 @@ class Alert < ApplicationRecord
     silver_price = data[:silver_data].usd
     sp_index_open = data[:sp_index_data].open
     Alert.all.each do |alert|
+      puts "ITEM: #{alert[:item]}"
       if alert[:item] == 'stock'
         price = self.get_stock_price alert[:stock].split(',')[0]
       elsif alert[:item] == 'sp_index'
@@ -19,8 +20,11 @@ class Alert < ApplicationRecord
       elsif alert[:item] == 'silver'
         price = silver_price
       end
+      puts "PRICE: #{price}"
       if (!price.blank?) && (alert[:above_or_below] && (price > alert[:target_value])) || (!alert[:above_or_below] && (price < alert[:target_value]))
+        puts 'BEFORE MAILER'
         PriceAlertMailer.send_alert_email(alert, price).deliver
+        puts 'AFTER MAILER'
         alert.destroy!
       end
     end
