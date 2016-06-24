@@ -22,7 +22,7 @@ class Alert < ApplicationRecord
       end
       puts "PRICE: #{price}"
       puts !price.blank?
-      puts (alert[:above_or_below] && (price > alert[:target_value])) || (!alert[:above_or_below] && (price < alert[:target_value])
+      puts (alert[:above_or_below] && (price > alert[:target_value])) || (!alert[:above_or_below] && (price < alert[:target_value]))
       if (!price.blank?) && (alert[:above_or_below] && (price > alert[:target_value])) || (!alert[:above_or_below] && (price < alert[:target_value]))
         puts 'BEFORE MAILER'
         PriceAlertMailer.send_alert_email(alert, price).deliver
