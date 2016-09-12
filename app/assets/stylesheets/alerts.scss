@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  background-color: #EAEFF4;
+  background-color: #111111;
 }
 
 .priceInfoBanner {
@@ -68,6 +68,12 @@ body {
 
   .chartsContainer {
     margin: 20px auto 0;
+
+    #chartContainer {
+      background-color: white;
+      width: initial;
+      height: initial;
+    }
 
     div {
       display: inline-block;
